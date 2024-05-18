@@ -17,11 +17,24 @@ body {
     width: 100%;
     font-size: larger;
     border-collapse: collapse;
+    border: none;
+
+}
+
+table tr:nth-child(odd) td{
+    background: #CCC;
+}
+table tr:nth-child(even) td{
+    background: #FFF;
+}
+
+#encabezado{
+    border:1px solid black;
 }
 
 #tabla th,
 #tabla td {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     padding: 10px;
     text-align: center;
 }

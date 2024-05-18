@@ -19,16 +19,18 @@
 
     <div class="container">
       <table id="tabla">
-        <tr>
+        <tr id="encabezado">
           <th>Cantidad</th>
           <th>Producto</th>
           <th>Precio</th>
           <th>Total</th>
         </tr>
+        <tbody id="tbody1" style="border: none;">
+        </tbody>
       </table>
     </div>
   </div>
-<input type="text" id="codigo" class="venta" onkeydown="buscarProductos(event)">
+  <input type="text" id="codigo" class="venta" onkeydown="buscarProductos(event)">
 
   <br>
 
@@ -57,7 +59,7 @@
     </div>
   </div>
 
-  
+
 </body>
 
 </html>

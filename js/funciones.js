@@ -33,5 +33,14 @@ function buscarProductos(event) {
         alert('Producto no encontrado');
 
     }
+    if(event.key == 'p') {
+       /* document.getElementById('codigo').value = '';*/
+       var monto = document.getElementById('codigo').value;
+       var cambio = monto - total;
+       cambio = parseFloat(cambio.toFixed(2));
+       /*alert('Vamos a pagar' + cambio);*/
+       document.getElementById('total').textContent = "cambio: " + cambio;
+       document.getElementById('codigo').value = '';
+    }
 }
 

@@ -7,7 +7,7 @@ body {
     align-items: center;
     gap: 10px;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -16,8 +16,9 @@ body {
     position: right;
 }
 
-.titulo h1, .titulo h2 {
-    margin: 0; /* Elimina el margen predeterminado de los encabezados */
+.titulo h1,
+.titulo h2 {
+    margin: 0;
 }
 
 .titulo h1 {
@@ -39,20 +40,20 @@ body {
 
 }
 
-table tr:nth-child(odd) td{
+table tr:nth-child(odd) td {
     background: #CCC;
 }
-table tr:nth-child(even) td{
-    background: #FFF;
+
+table tr:nth-child(even) td {
+    background: #FFF;
 }
 
-#encabezado{
-    border:1px solid black;
+#encabezado {
+    border: 1px solid black;
 }
 
 #tabla th,
 #tabla td {
-    /*border: 1px solid black;*/
     padding: 10px;
     text-align: center;
 }
@@ -121,4 +122,44 @@ table tr:nth-child(even) td{
 .titulo {
     text-align: center;
     align-items: center;
+}
+
+.alerta-cambio {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 3px solid #f10808;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    font-size: 24px;
+    color: #000000;
+}
+
+.finalizar-venta-btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #1a83c9;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.finalizar-venta-btn:hover {
+    background-color: #cc0000;
+}
+
+#monto-recibido {
+    font-size: 20px;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-right: 10px;
 }

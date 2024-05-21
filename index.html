@@ -16,10 +16,10 @@
     <div class="titulo">
       <img src="img/don.jpg" alt="">
       <div class="nombre">
-      <h1>Don carero</h1>
-      <h2>No es bueno pero es barato</h2>
-    </div>
-    <img src="img/carero.jpg" alt="">
+        <h1>Don carero</h1>
+        <h2>No es bueno pero es barato</h2>
+      </div>
+      <img src="img/carero.jpg" alt="">
     </div>
 
     <div class="container">
@@ -62,9 +62,15 @@
     <div class="total">
       <h1 id="total">$0.00</h1>
     </div>
+
+    <div class="pago-container">
+      <input type="text" id="monto-recibido" placeholder="Monto recibido" onkeydown="procesarPago(event)"
+        pattern="[0-9]*">
+      <button class="finalizar-venta-btn" onclick="finalizarVenta()">Finalizar venta</button>
+
+
+    </div>
   </div>
-
-
 </body>
 
 </html>

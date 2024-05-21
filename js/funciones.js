@@ -1,16 +1,12 @@
 var total = 0;
 
 function buscarProductos(event) {
-    if(event.key == 'Enter') {
+    if (event.key === 'Enter') {
         var codigo = document.getElementById('codigo').value;
         var control = false;
-       /* alert('Buscando el producto con código: ' + codigo );*/
-        for(var i = 0; i < productos.length; i++) {
-            if(productos[i][0] == codigo) {
-               /* document.getElementById('nombre').value = productos[i][1];
-                document.getElementById('precio').value = productos[i][2];*/
-                /*alert('Producto encontrado: ' + productos[i][1] + ' ' + productos[i][2]);*/
-                var tabla  = document.getElementById('tbody1');
+        for (var i = 0; i < productos.length; i++) {
+            if (productos[i][0] == codigo) {
+                var tabla = document.getElementById('tbody1');
                 var fila = tabla.insertRow();
                 var celda0 = fila.insertCell(0);
                 celda0.innerHTML = "1";
@@ -20,27 +16,63 @@ function buscarProductos(event) {
                 celda2.innerHTML = productos[i][2];
                 var celda3 = fila.insertCell(3);
                 celda3.innerHTML = productos[i][2];
-                total += productos[i][2];
-                document.getElementById('total').textContent = total;
+                total += parseFloat(productos[i][2]);
+                document.getElementById('total').textContent = `$${total.toFixed(2)}`;
                 control = true;
                 document.getElementById('codigo').value = '';
                 break;
-
             }
-        }   
-        if(!control)
-
-        alert('Producto no encontrado');
-
+        }
+        if (!control) {
+            alert('Producto no encontrado');
+        }
     }
-    if(event.key == 'p') {
-       /* document.getElementById('codigo').value = '';*/
-       var monto = document.getElementById('codigo').value;
-       var cambio = monto - total;
-       cambio = parseFloat(cambio.toFixed(2));
-       /*alert('Vamos a pagar' + cambio);*/
-       document.getElementById('total').textContent = "cambio: " + cambio;
-       document.getElementById('codigo').value = '';
+}
+
+function procesarPago(event) {
+    if (event.key === 'Enter') {
+        var montoRecibido = parseFloat(document.getElementById('monto-recibido').value);
+        if (isNaN(montoRecibido)) {
+            alert('Ingrese un monto válido');
+            return;
+        }
+        var cambio = montoRecibido - total;
+        cambio = parseFloat(cambio.toFixed(2));
+        mostrarAlerta(`Cambio: $${cambio.toFixed(2)}`);
+        total = 0;
+        document.getElementById('monto-recibido').value = '';
     }
+}
+
+function mostrarAlerta(mensaje) {
+    alerta = document.createElement('div');
+    alerta.textContent = mensaje;
+    alerta.style.position = 'fixed';
+    alerta.style.top = '50%';
+    alerta.style.left = '50%';
+    alerta.style.transform = 'translate(-50%, -50%)';
+    alerta.style.backgroundColor = 'white';
+    alerta.style.border = '2px solid black';
+    alerta.style.padding = '20px';
+    alerta.style.borderRadius = '10px';
+    document.body.appendChild(alerta);
+}
+function finalizarVenta() {
+    limpiarTabla();
+    if (alerta) {
+        document.body.removeChild(alerta);
+    }
+}
+
+function limpiarTabla() {
+    document.getElementById('total').textContent = '$0.00';
+    document.getElementById('tbody1').innerHTML = '';
+}
+
+function mostrarAlerta(mensaje) {
+    alerta = document.createElement('div');
+    alerta.textContent = mensaje;
+    alerta.classList.add('alerta-cambio');
+    document.body.appendChild(alerta);
 }
 
